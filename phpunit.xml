@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit syntaxCheck="false" strict="true" bootstrap="./tests/bootstrap.php">
+    <testsuites>
+        <testsuite name="FP Test Suite">
+            <directory>./tests/</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist>
+            <directory suffix=".php">./FP/</directory>
+        </whitelist>
+    </filter>
+    <php>
+        <ini name="error_reporting" value="30711"/> <!-- E_ALL & ~E_NOTICE -->
+    </php>
+    <logging>
+        <log type="coverage-html" target="./build/coverage" charset="UTF-8"
+            yui="true" highlight="false"
+            lowUpperBound="35" highLowerBound="70"/>
+        <log type="coverage-xml" target="./build/logs/coverage.xml"/>
+        <log type="json" target="./build/logs/logfile.json"/>
+        <log type="tap" target="./build/logs/logfile.tap"/>
+        <log type="junit" target="./build/logs/logfile.xml"
+            logIncompleteSkipped="false"/>
+        <log type="testdox-html" target="./build/logs/testdox.html"/>
+        <log type="testdox-text" target="./build/logs/testdox.txt"/>
+    </logging>
+</phpunit>
